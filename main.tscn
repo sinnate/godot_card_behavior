@@ -1,0 +1,123 @@
+[gd_scene load_steps=6 format=3 uid="uid://c71b08esy5yr5"]
+
+[ext_resource type="Script" path="res://Hand.gd" id="1_1rq7w"]
+[ext_resource type="PackedScene" uid="uid://sv1vcetkldtf" path="res://card.res" id="1_aoxwc"]
+[ext_resource type="Script" path="res://main.gd" id="1_p22o4"]
+[ext_resource type="Texture2D" uid="uid://b0iwbw5g1knfk" path="res://card/details/paper.png" id="4_ooaw4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8yw6g"]
+size = Vector2(152, 104)
+
+[node name="main" type="Node"]
+script = ExtResource("1_p22o4")
+
+[node name="Hand" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.236
+anchor_top = 0.593
+anchor_right = 0.757
+anchor_bottom = 1.0
+offset_left = -3.87201
+offset_top = -0.264038
+offset_right = 11.936
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+alignment = 1
+script = ExtResource("1_1rq7w")
+
+[node name="card" parent="Hand" instance=ExtResource("1_aoxwc")]
+layout_mode = 2
+
+[node name="card2" parent="Hand" instance=ExtResource("1_aoxwc")]
+layout_mode = 2
+
+[node name="card3" parent="Hand" instance=ExtResource("1_aoxwc")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 144.0
+offset_bottom = 64.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Add card"
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="Area2D" parent="Node2D"]
+position = Vector2(216, 152)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/StaticBody2D"]
+position = Vector2(-8.75, 0)
+scale = Vector2(0.902235, 1)
+texture = ExtResource("4_ooaw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(-12, 4)
+shape = SubResource("RectangleShape2D_8yw6g")
+
+[node name="StaticBody2D2" type="Area2D" parent="Node2D"]
+position = Vector2(416, 152)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/StaticBody2D2"]
+position = Vector2(-8.75, 0)
+scale = Vector2(0.902235, 1)
+texture = ExtResource("4_ooaw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D2"]
+position = Vector2(-12, 4)
+shape = SubResource("RectangleShape2D_8yw6g")
+
+[node name="StaticBody2D3" type="Area2D" parent="Node2D"]
+position = Vector2(608, 152)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/StaticBody2D3"]
+position = Vector2(-8.75, 0)
+scale = Vector2(0.902235, 1)
+texture = ExtResource("4_ooaw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D3"]
+position = Vector2(-12, 4)
+shape = SubResource("RectangleShape2D_8yw6g")
+
+[node name="StaticBody2D4" type="Area2D" parent="Node2D"]
+position = Vector2(819, 152)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/StaticBody2D4"]
+position = Vector2(-8.75, 0)
+scale = Vector2(0.902235, 1)
+texture = ExtResource("4_ooaw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D4"]
+position = Vector2(-12, 4)
+shape = SubResource("RectangleShape2D_8yw6g")
+
+[node name="StaticBody2D5" type="Area2D" parent="Node2D"]
+position = Vector2(1008, 152)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/StaticBody2D5"]
+position = Vector2(-8.75, 0)
+scale = Vector2(0.902235, 1)
+texture = ExtResource("4_ooaw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D5"]
+position = Vector2(-12, 4)
+shape = SubResource("RectangleShape2D_8yw6g")
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
