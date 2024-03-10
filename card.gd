@@ -1,7 +1,9 @@
 extends TextureRect
 var in_valide_range : bool = false
-var is_selected : bool = false 
-var is_mouse_in : bool = false 
+var is_selected : bool = false
+var is_mouse_in : bool = false
+var target : Area2D = null
+
 
 func _input(event):
 	if is_mouse_in and event.is_action_pressed("card_interaction") and !is_selected:
@@ -9,6 +11,8 @@ func _input(event):
 	elif is_selected and event.is_action_pressed("card_interaction") :
 		is_selected = false
 		if in_valide_range :
+			print(global_position)
+			target.near_position(global_position)
 			queue_free()
 		#global_position = intial_position
 		get_parent().queue_sort()
@@ -35,9 +39,11 @@ func _process(_delta):
 
 
 func _on_area_2d_area_entered(area):
-	print(area.get_index())
 	in_valide_range = true
+	target = area
 
 
-func _on_area_2d_area_exited(area):
+
+func _on_area_2d_area_exited(_area):
+	target = null
 	in_valide_range = false

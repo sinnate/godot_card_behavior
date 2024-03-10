@@ -1,0 +1,6 @@
+Node2D
+HBoxContainer
+TextureRect
+Control
+CollisionShape2D
+Area2D
