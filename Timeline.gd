@@ -12,5 +12,5 @@ func near_position(card_distance : Vector2) -> void :
 		current_pos = card_distance.direction_to(point_holder.get_child(point).global_position).x
 		if current_pos <= closset_distance :
 			closest_point = point
-			current_pos = closset_distance
+			closset_distance = current_pos 
 	print(current_pos," > ",closest_point)
